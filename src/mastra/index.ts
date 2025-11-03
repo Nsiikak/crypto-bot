@@ -27,11 +27,32 @@
 //   },
 // });
 // src/index.ts
-import { Mastra } from "@mastra/core";
+import { Mastra } from "@mastra/core/mastra";
+import { PinoLogger } from "@mastra/loggers";
+import { LibSQLStore } from "@mastra/libsql";
 import { cryptoAgent } from "./agents/cryptoAgent";
+import { a2aAgentRoute } from "./routes/a2a-route";
 
 export const mastra = new Mastra({
-  agents: {
-    cryptoAgent,
+  agents: { cryptoAgent },
+  storage: new LibSQLStore({
+    url: ":memory:", // in-memory storage (use file:mastra.db to persist)
+  }),
+  logger: new PinoLogger({
+    name: "CryptoBot",
+    level: "info",
+  }),
+  telemetry: {
+    enabled: false, // deprecated in new Mastra
+  },
+  observability: {
+    default: { enabled: true },
+  },
+  server: {
+    build: {
+      openAPIDocs: true,
+      swaggerUI: true,
+    },
+    apiRoutes: [a2aAgentRoute],
   },
 });
