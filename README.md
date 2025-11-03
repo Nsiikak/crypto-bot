@@ -1,5 +1,5 @@
-```markdown
-# 💰 Crypto Price Agent (Mastra x Telex)
+```
+## 💰 Crypto Price Agent (Mastra x Telex)
 
 A lightweight AI agent built with **Mastra** that fetches real-time cryptocurrency prices from the **CoinGecko API**.  
 Designed for integration with **Telex.im** to respond to user messages like:
