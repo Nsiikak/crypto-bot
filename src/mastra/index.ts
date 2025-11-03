@@ -30,11 +30,8 @@
 import { Mastra } from "@mastra/core";
 import { cryptoAgent } from "./agents/cryptoAgent";
 
-const mastra = new Mastra({
+export const mastra = new Mastra({
   agents: {
     cryptoAgent,
   },
 });
-
-// Start the Mastra A2A server
-mastra.serve();
