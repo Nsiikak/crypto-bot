@@ -36,5 +36,5 @@ const mastra = new Mastra({
   },
 });
 
-// export / start server
-export { mastra };
+// Start the Mastra A2A server
+mastra.serve();
